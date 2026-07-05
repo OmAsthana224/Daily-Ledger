@@ -1,0 +1,245 @@
+:root{
+    --ink: #14172B;
+    --ink-soft: #1F2340;
+    --paper: #FBF7EC;
+    --paper-shadow: #EFE8D6;
+    --text: #23263B;
+    --muted: #8B8672;
+    --line: #D3CBB2;
+    --gold: #D89A3C;
+    --gold-dark: #A9722A;
+    --teal: #3F8F86;
+    --red-stamp: #B4483B;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--ink);
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(216,154,60,0.06), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(63,143,134,0.06), transparent 40%);
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    padding: 48px 20px 80px;
+  }
+
+  .ledger {
+    width: 100%;
+    max-width: 480px;
+    background: var(--paper);
+    box-shadow: 0 30px 60px -15px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.03);
+    position: relative;
+    padding: 0 0 28px;
+  }
+
+  /* torn perforated top edge */
+  .perf {
+    height: 14px;
+    width: 100%;
+    background-image: radial-gradient(circle at 7px 7px, var(--ink) 7px, transparent 7.5px);
+    background-size: 22px 14px;
+    background-repeat: repeat-x;
+    background-position: -4px -7px;
+  }
+
+  .header {
+    text-align: center;
+    padding: 22px 32px 18px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .header .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .header h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 34px;
+    margin: 6px 0 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .header .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .compose {
+    display: flex;
+    gap: 10px;
+    padding: 20px 28px 16px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .compose input {
+    flex: 1;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    padding: 6px 2px;
+    color: var(--text);
+    outline: none;
+  }
+
+  .compose input::placeholder { color: #B4AD94; }
+  .compose input:focus { border-bottom-color: var(--gold-dark); }
+
+  .compose button {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 0 16px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .compose button:hover { background: var(--gold-dark); }
+
+  .entries {
+    list-style: none;
+    margin: 0;
+    padding: 6px 28px 0;
+    min-height: 40px;
+  }
+
+  .entry {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px dotted var(--line);
+  }
+
+  .stamp {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1.6px solid var(--muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: transparent;
+    transition: all 0.15s ease;
+    background: transparent;
+  }
+
+  .stamp:hover { border-color: var(--gold-dark); }
+
+  .entry.done .stamp {
+    border-color: var(--teal);
+    color: var(--teal);
+    background: rgba(63,143,134,0.08);
+    transform: rotate(-8deg);
+  }
+
+  .entry-text {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.35;
+    word-break: break-word;
+  }
+
+  .entry.done .entry-text {
+    color: var(--muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--red-stamp);
+    text-decoration-thickness: 1.4px;
+  }
+
+  .entry-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #B4AD94;
+    flex-shrink: 0;
+  }
+
+  .remove {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: #C7BFA4;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 2px 4px;
+    transition: color 0.15s ease;
+  }
+  .remove:hover { color: var(--red-stamp); }
+
+  .empty {
+    text-align: center;
+    padding: 30px 10px 10px;
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  .tally {
+    margin: 18px 28px 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--text);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--text);
+  }
+
+  .tally strong {
+    font-size: 13px;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .filters button {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .filters button.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+
+  .stamp:focus-visible, .compose button:focus-visible, .remove:focus-visible, .filters button:focus-visible, .compose input:focus-visible {
+    outline: 2px solid var(--gold-dark);
+    outline-offset: 2px;
+  }
