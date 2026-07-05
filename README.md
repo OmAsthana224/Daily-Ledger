@@ -19,36 +19,6 @@ A clean and elegant newspaper-inspired To-Do application built using **HTML, CSS
 - CSS3
 - Vanilla JavaScript
 
-## 📂 Project Structure
-
-```
-The-Daily-Ledger/
-│
-├── index.html
-├── style.css
-├── script.js
-├── README.md
-└── .gitignore
-```
-
-## 🚀 Getting Started
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/yourusername/the-daily-ledger.git
-```
-
-2. Open the project folder.
-
-3. Run `index.html` in your browser.
-
-No installation required.
-
-## 📸 Preview
-
-(Add screenshot here)
-
 ## Future Improvements
 
 - Local Storage
